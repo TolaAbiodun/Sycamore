@@ -5,10 +5,10 @@ export const BLACK = '#000000';
 // BES PRIMARY
 export const SYC_RED_FADE = '#FDF4F9';
 export const SYC_TOAST_DANGER = '#DC3545';
-export const SYC_PRIMARY = '#5D1AB2';
-export const SYC_PRIMARY_FAINT = '#B698DD';
-export const SYC_SECONDARY = '#FFB600';
-export const SYC_BACKGROUND_FAINT = '#EDE5F7';
+export const SYC_PRIMARY = '#26C165';
+export const SYC_PRIMARY_FAINT = '#DEF6E8';
+export const SYC_SECONDARY = '#F6B200';
+export const SYC_SECONDARY_FAINT = '#F9F1DC';
 export const SYC_GRAY_LIGHT = '#F5F5F5';
 export const SYC_TOAST_SUCCESS = '#28A745';
 export const SYC_TOAST_INFO = '#343A40';

@@ -12,9 +12,16 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		28491D6E45BA4210B664F09B /* TomatoGrotesk-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69ADEA426F4041F7B6DE6D46 /* TomatoGrotesk-ExtraBold.otf */; };
+		46A97E94B4364C09A1236ED8 /* TomatoGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF03A610A74A5DA355BD6F /* TomatoGrotesk-Bold.otf */; };
+		654D2D207FB147438E2FAE79 /* TomatoGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E6599551BD6B4AFD9F7E4D03 /* TomatoGrotesk-Medium.otf */; };
 		7699B88040F8A987B510C191 /* libPods-sycamore-sycamoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-sycamore-sycamoreTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		96725CF768B44752A2F04B86 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A997F9F61296456EA62D83C0 /* DMSans-Medium.ttf */; };
+		E33AC5E83A5345E8980F0361 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E27F4BF2A9CA4A5AA3C763B8 /* DMSans-Bold.ttf */; };
+		F2ABFE7647734B1B81DAEF7E /* TomatoGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04EC1220D0F6430C8C4E9A4D /* TomatoGrotesk-Regular.otf */; };
 		FDB15295FBCF1AD8815F0D62 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CCF49595063D441CA54BC331 /* PrivacyInfo.xcprivacy */; };
+		FF464BF9029342A0AEC94D53 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CE51C3D562249B1BEFA7753 /* DMSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +38,7 @@
 		00E356EE1AD99517003FC87E /* sycamoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sycamoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* sycamoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sycamoreTests.m; sourceTree = "<group>"; };
+		04EC1220D0F6430C8C4E9A4D /* TomatoGrotesk-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TomatoGrotesk-Regular.otf"; path = "../src/assets/fonts/TomatoGrotesk-Regular.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* sycamore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sycamore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sycamore/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = sycamore/AppDelegate.mm; sourceTree = "<group>"; };
@@ -39,13 +47,19 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sycamore/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = sycamore/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-sycamore-sycamoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sycamore-sycamoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AAF03A610A74A5DA355BD6F /* TomatoGrotesk-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TomatoGrotesk-Bold.otf"; path = "../src/assets/fonts/TomatoGrotesk-Bold.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-sycamore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sycamore.debug.xcconfig"; path = "Target Support Files/Pods-sycamore/Pods-sycamore.debug.xcconfig"; sourceTree = "<group>"; };
+		3CE51C3D562249B1BEFA7753 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Regular.ttf"; path = "../src/assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-sycamore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sycamore.release.xcconfig"; path = "Target Support Files/Pods-sycamore/Pods-sycamore.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-sycamore-sycamoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sycamore-sycamoreTests.debug.xcconfig"; path = "Target Support Files/Pods-sycamore-sycamoreTests/Pods-sycamore-sycamoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-sycamore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sycamore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69ADEA426F4041F7B6DE6D46 /* TomatoGrotesk-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TomatoGrotesk-ExtraBold.otf"; path = "../src/assets/fonts/TomatoGrotesk-ExtraBold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = sycamore/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-sycamore-sycamoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sycamore-sycamoreTests.release.xcconfig"; path = "Target Support Files/Pods-sycamore-sycamoreTests/Pods-sycamore-sycamoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		A997F9F61296456EA62D83C0 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Medium.ttf"; path = "../src/assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		CCF49595063D441CA54BC331 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = sycamore/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E27F4BF2A9CA4A5AA3C763B8 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Bold.ttf"; path = "../src/assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		E6599551BD6B4AFD9F7E4D03 /* TomatoGrotesk-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TomatoGrotesk-Medium.otf"; path = "../src/assets/fonts/TomatoGrotesk-Medium.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -127,6 +141,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				9436550918E048AA908118A6 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -140,6 +155,21 @@
 				00E356EE1AD99517003FC87E /* sycamoreTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9436550918E048AA908118A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AAF03A610A74A5DA355BD6F /* TomatoGrotesk-Bold.otf */,
+				69ADEA426F4041F7B6DE6D46 /* TomatoGrotesk-ExtraBold.otf */,
+				E6599551BD6B4AFD9F7E4D03 /* TomatoGrotesk-Medium.otf */,
+				04EC1220D0F6430C8C4E9A4D /* TomatoGrotesk-Regular.otf */,
+				E27F4BF2A9CA4A5AA3C763B8 /* DMSans-Bold.ttf */,
+				A997F9F61296456EA62D83C0 /* DMSans-Medium.ttf */,
+				3CE51C3D562249B1BEFA7753 /* DMSans-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -249,6 +279,13 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				FDB15295FBCF1AD8815F0D62 /* PrivacyInfo.xcprivacy in Resources */,
+				46A97E94B4364C09A1236ED8 /* TomatoGrotesk-Bold.otf in Resources */,
+				28491D6E45BA4210B664F09B /* TomatoGrotesk-ExtraBold.otf in Resources */,
+				654D2D207FB147438E2FAE79 /* TomatoGrotesk-Medium.otf in Resources */,
+				F2ABFE7647734B1B81DAEF7E /* TomatoGrotesk-Regular.otf in Resources */,
+				E33AC5E83A5345E8980F0361 /* DMSans-Bold.ttf in Resources */,
+				96725CF768B44752A2F04B86 /* DMSans-Medium.ttf in Resources */,
+				FF464BF9029342A0AEC94D53 /* DMSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

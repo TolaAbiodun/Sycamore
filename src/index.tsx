@@ -1,12 +1,8 @@
-import {SafeAreaView, Text} from 'react-native';
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
+import RootNavigator from './navigation';
 
 const App = () => {
-  return (
-    <SafeAreaView>
-      <Text>Here is the App</Text>
-    </SafeAreaView>
-  );
+  return <RootNavigator />;
 };
 
 export default App;
