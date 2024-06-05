@@ -1,9 +1,17 @@
 /**
  * @format
  */
-
-import {AppRegistry} from 'react-native';
-import App from './App';
+import 'react-native-gesture-handler';
+import {AppRegistry, Text} from 'react-native';
+import App from './src';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+// We disable Font Scaling - Known Text issues on android
+Text.defaultProps = Text.defaultProps || {};
+Text.defaultProps.allowFontScaling = false;
+
+const RootApp = () => {
+  return <App />;
+};
+
+AppRegistry.registerComponent(appName, () => RootApp);
