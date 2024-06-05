@@ -1,4 +1,4 @@
-import { scale } from 'react-native-size-matters';
+import {scale} from 'react-native-size-matters';
 
 // FONT SIZE
 export const FONT_SIZE_56 = scale(56);

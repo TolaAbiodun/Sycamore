@@ -11,6 +11,7 @@ Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
 
 const RootApp = () => {
+  // eslint-disable-next-line react/react-in-jsx-scope
   return <App />;
 };
 
