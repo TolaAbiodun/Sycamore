@@ -39,6 +39,8 @@ import Master from '@/components/Icons/app/master';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AppStackList } from '@/navigation/app-navigator';
 import { Container, Spacer } from '@/components';
+import EyeVisible from '@/components/Icons/app/eye-visible';
+import EyeCross from '@/components/Icons/app/eye-cross';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 
@@ -49,6 +51,7 @@ type Props = {
 const HomeScreen = ({ navigation }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
+  const [isBalanceVisibile, setIsBalanceVisible] = useState(true);
 
   const onViewRef = useRef((viewableItems: any) => {
     if (viewableItems.viewableItems.length > 0) {
@@ -58,6 +61,11 @@ const HomeScreen = ({ navigation }: Props) => {
 
   const viewConfigRef = useRef({ viewAreaCoveragePercentThreshold: 50 });
   let scrollOffsetY = useRef(new Animated.Value(0)).current;
+
+  // Handlers
+  const toggleBalance = () => {
+    setIsBalanceVisible(!isBalanceVisibile);
+  };
 
   return (
     <>
@@ -84,7 +92,13 @@ const HomeScreen = ({ navigation }: Props) => {
                   <View style={[styles.row, { justifyContent: 'space-between', width: '100%' }]}>
                     <View style={[styles.row, { gap: 2 }]}>
                       <Naira />
-                      <Text style={styles.bal}>53,754.00</Text>
+                      <Text style={styles.bal}>
+                        {isBalanceVisibile ? '53,754.00' : '* * * * * * * '}
+                      </Text>
+                      <View style={{ marginRight: 5 }} />
+                      <TouchableOpacity hitSlop={10} activeOpacity={0.7} onPress={toggleBalance}>
+                        {isBalanceVisibile ? <EyeCross /> : <EyeVisible />}
+                      </TouchableOpacity>
                     </View>
                     <TouchableOpacity style={[styles.row, styles.btn]} activeOpacity={0.7}>
                       <Text style={[styles.txtReg, { fontSize: FONT_SIZE_10 }]}>View History</Text>
@@ -166,14 +180,9 @@ const HomeScreen = ({ navigation }: Props) => {
                     hasProgress={index === 0}
                     progressIndicator={
                       <CircularProgress
-                        radius={15}
+                        radius={18}
                         value={25}
                         duration={500}
-                        progressValueStyle={{
-                          fontSize: 9,
-                          fontFamily: FONT_FAMILY_TOMATO_BOLD,
-                          color: BLACK,
-                        }}
                         inActiveStrokeColor={GRAY_DARK}
                         inActiveStrokeOpacity={0.2}
                         activeStrokeWidth={5}

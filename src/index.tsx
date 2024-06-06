@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import RootNavigator from './navigation';
 import SplashScreen from './screens/loaders/splash';
 import { StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,10 +19,10 @@ const App = () => {
     loadAppConfig();
   }, []);
   return (
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar animated={true} barStyle="light-content" backgroundColor="#000" />
       {!isLoaded ? <SplashScreen /> : <RootNavigator />}
-    </>
+    </GestureHandlerRootView>
   );
 };
 

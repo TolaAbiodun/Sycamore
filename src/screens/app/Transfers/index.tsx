@@ -8,10 +8,10 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import AlertModal from '@/components/ModalAlerts';
 import { Container, GoBack, Spacer } from '@/components';
-import { BLACK, SYC_GREEN, WHITE } from '@/styles/colors';
+import { BLACK, SYC_GREEN, SYC_PRIMARY_FAINT, WHITE } from '@/styles/colors';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AppStackList } from '@/navigation/app-navigator';
 import TransferQuota from './components/quota';
@@ -23,6 +23,12 @@ import PlaneTilt2 from '@/components/Icons/app/planetilt2';
 import { FONT_FAMILY_DMSANS_MEDIUM, FONT_SIZE_12, FONT_SIZE_14 } from '@/styles/fonts';
 import Transaction from './components/transactions';
 import moment from 'moment';
+import BottomSheet, {
+  BottomSheetBackdrop,
+  BottomSheetBackdropProps,
+  BottomSheetScrollView,
+} from '@gorhom/bottom-sheet';
+import LocalTransfer from './localTransfer';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 
@@ -35,6 +41,29 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
   const handleToggleModal = () => {
     setShowModal(!showModal);
   };
+
+  // Bottom sheet
+  // hooks
+  const sheetRef = useRef<BottomSheet>(null);
+
+  const expandAction = useCallback(() => {
+    sheetRef.current?.snapToIndex(0);
+  }, [sheetRef]);
+
+  const snapPoints = useMemo(() => ['60%', '65%'], []);
+
+  const renderBackDrop = useCallback(
+    (props: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={0}
+        pressBehavior="close"
+      />
+    ),
+    []
+  );
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: WHITE }}>
       <Container>
@@ -104,7 +133,7 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
             icon={<PlaneTilt2 />}
             title="Send to Bank Account"
             desc="Transfer to a local bank account"
-            onPress={() => {}}
+            onPress={expandAction}
           />
           {/* Recent Transfers */}
           <View style={styles.row}>
@@ -119,7 +148,7 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
             showsHorizontalScrollIndicator={false}
             scrollEnabled={false}
             keyExtractor={(_, index) => index.toString()}
-            renderItem={({ item, index }) => (
+            renderItem={({ item }) => (
               <Transaction
                 icon={item.icon}
                 title={item.title}
@@ -131,6 +160,19 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
             contentContainerStyle={{ gap: 10 }}
           />
         </ScrollView>
+        <BottomSheet
+          backdropComponent={renderBackDrop}
+          ref={sheetRef}
+          index={-1}
+          snapPoints={snapPoints}
+          enablePanDownToClose
+          keyboardBehavior="extend"
+          backgroundStyle={{ backgroundColor: SYC_PRIMARY_FAINT }}
+        >
+          <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
+            <LocalTransfer />
+          </BottomSheetScrollView>
+        </BottomSheet>
       </Container>
     </SafeAreaView>
   );
@@ -156,5 +198,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     color: BLACK,
     fontSize: FONT_SIZE_14,
+  },
+  contentContainer: {
+    backgroundColor: SYC_PRIMARY_FAINT,
+    flex: 1,
+    paddingBottom: 100,
+    paddingHorizontal: 15,
   },
 });

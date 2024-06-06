@@ -67,8 +67,8 @@ const CustomInputSelector = ({
           hitSlop={20}
           style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between' }}
         >
-          <Text>{value}</Text>
-          <View>{icon && icon}</View>
+          <Text style={styles.val}>{value}</Text>
+          <View style={{ marginTop: 5 }}>{icon && icon}</View>
         </TouchableOpacity>
       </View>
     </View>
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    paddingVertical: scale(5),
     width: '100%',
   },
 
@@ -111,6 +110,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
     width: '100%',
     padding: scale(5),
+  },
+
+  val: {
+    fontSize: FONT_SIZE_14,
+    fontFamily: FONT_FAMILY_DMSANS_REGULAR,
   },
 
   labelCt: {
