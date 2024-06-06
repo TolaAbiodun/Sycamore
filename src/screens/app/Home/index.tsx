@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {
+  Animated,
   FlatList,
   Image,
   ImageBackground,
@@ -41,6 +42,9 @@ import { Todos, actionsData } from '@/utils/data';
 import TodoList from './components/todo';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import { useRef, useState } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import DynamicHeader from './components/header';
+import Master from '@/components/Icons/app/master';
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -53,185 +57,155 @@ const HomeScreen = () => {
   });
 
   const viewConfigRef = useRef({ viewAreaCoveragePercentThreshold: 50 });
+  let scrollOffsetY = useRef(new Animated.Value(0)).current;
 
   return (
-    <ScrollView contentContainerStyle={{ backgroundColor: WHITE, paddingBottom: 50 }}>
-      <ImageBackground source={require('../../../assets/images/backdrop.png')} style={styles.img}>
-        <SafeAreaView>
-          <Container>
-            {/* Header View here */}
-            <View style={styles.header}>
-              <View style={styles.row}>
-                <Image source={require('../../../assets/images/user.png')} />
-                <Text style={styles.txtReg}>Hello, User</Text>
-              </View>
-              {/* Notificatiion */}
-              <Notification />
-            </View>
-            {/* Wallet Balances */}
-            <View style={styles.balCt}>
-              <Text style={[styles.txtReg, { fontFamily: FONT_FAMILY_DMSANS_REGULAR }]}>
-                Wallet Balance
-              </Text>
-              <Spacer height={10} />
-              <View style={styles.header}>
-                <View style={[styles.row, { gap: 2 }]}>
-                  <Naira />
-                  <Text style={styles.bal}>53,754.00</Text>
-                </View>
-                <TouchableOpacity style={[styles.row, styles.btn]} activeOpacity={0.7}>
-                  <Text style={[styles.txtReg, { fontSize: FONT_SIZE_10 }]}>View History</Text>
-                  <ArrowFoward />
-                </TouchableOpacity>
-              </View>
-              <Spacer height={15} />
-              <View style={styles.row}>
-                <Text style={styles.txtReg}>
-                  <Text style={[styles.txtReg, { fontFamily: FONT_FAMILY_DMSANS_REGULAR }]}>
-                    Wema Bank:{' '}
-                  </Text>
-                  61247902547
+    <>
+      <DynamicHeader animHeaderValue={scrollOffsetY} />
+      <ScrollView
+        contentContainerStyle={{ backgroundColor: WHITE, paddingBottom: 50 }}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }], {
+          useNativeDriver: false,
+        })}
+        showsVerticalScrollIndicator={false}
+        scrollEventThrottle={1000}
+        bounces={false}
+      >
+        <View style={{ backgroundColor: WHITE, flex: 1 }}>
+          <ImageBackground source={require('../../../assets/images/backdrop.png')}>
+            <Container>
+              {/* Wallet Balances */}
+              <View style={styles.balCt}>
+                <Text style={[styles.txtReg, { fontFamily: FONT_FAMILY_DMSANS_REGULAR }]}>
+                  Wallet Balance
                 </Text>
-                <Copy />
+                <Spacer height={10} />
+                <View style={styles.header}>
+                  <View style={[styles.row, { gap: 2 }]}>
+                    <Naira />
+                    <Text style={styles.bal}>53,754.00</Text>
+                  </View>
+                  <TouchableOpacity style={[styles.row, styles.btn]} activeOpacity={0.7}>
+                    <Text style={[styles.txtReg, { fontSize: FONT_SIZE_10 }]}>View History</Text>
+                    <ArrowFoward />
+                  </TouchableOpacity>
+                </View>
+                <Spacer height={15} />
+                <View style={styles.row}>
+                  <Text style={styles.txtReg}>
+                    <Text style={[styles.txtReg, { fontFamily: FONT_FAMILY_DMSANS_REGULAR }]}>
+                      Wema Bank:{' '}
+                    </Text>
+                    61247902547
+                  </Text>
+                  <Copy />
+                </View>
+              </View>
+              {/* Call to Actions */}
+              <View style={styles.actionsCt}>
+                <MenuAction title="Fund Wallet" onPress={() => {}} icon={<PlusCircle />} />
+                <MenuAction title="Send Money" onPress={() => {}} icon={<PlaneTilt />} />
+                <MenuAction title="Pay Bills" onPress={() => {}} icon={<Reciept />} />
+              </View>
+            </Container>
+            <Spacer height={10} />
+          </ImageBackground>
+          <Spacer height={10} />
+
+          <Container>
+            {/* To do List  */}
+            <View style={[styles.row, { justifyContent: 'space-between' }]}>
+              <Text style={styles.headings}>To-Do List</Text>
+              <View style={styles.paginationContainer}>
+                {Todos.map((_, index) => (
+                  <View
+                    key={index}
+                    style={[
+                      styles.dot,
+                      { backgroundColor: activeIndex === index ? GRAY_DARK : '#C4C4C4' },
+                      { width: activeIndex === index ? 18 : 5 },
+                    ]}
+                  />
+                ))}
               </View>
             </View>
-            {/* Call to Actions */}
-            <View style={styles.actionsCt}>
-              <MenuAction title="Fund Wallet" onPress={() => {}} icon={<PlusCircle />} />
-              <MenuAction title="Send Money" onPress={() => {}} icon={<PlaneTilt />} />
-              <MenuAction title="Pay Bills" onPress={() => {}} icon={<Reciept />} />
-            </View>
+            <Spacer height={5} />
+            <FlatList
+              ref={flatListRef}
+              data={Todos}
+              keyExtractor={(_, index) => index.toString()}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              snapToInterval={WINDOW_WIDTH * 0.8 + 10} // Adjust for item width and gap
+              decelerationRate="fast"
+              pagingEnabled
+              onViewableItemsChanged={onViewRef.current}
+              viewabilityConfig={viewConfigRef.current}
+              contentContainerStyle={{ gap: 10 }}
+              renderItem={({ item, index }) => (
+                <View style={{ overflow: 'hidden', marginBottom: 20, width: WINDOW_WIDTH * 0.8 }}>
+                  <TodoList
+                    title={item.title}
+                    icon={item.icon}
+                    description={item.description}
+                    onPress={() => {}}
+                    actiontext={item.actionText}
+                    hasProgress={index === 0}
+                    progressIndicator={
+                      <CircularProgress
+                        radius={15}
+                        value={25}
+                        duration={500}
+                        progressValueStyle={{
+                          fontSize: 9,
+                          fontFamily: FONT_FAMILY_TOMATO_BOLD,
+                          color: BLACK,
+                        }}
+                        inActiveStrokeColor={GRAY_DARK}
+                        inActiveStrokeOpacity={0.2}
+                        activeStrokeWidth={5}
+                        inActiveStrokeWidth={5}
+                        activeStrokeColor="#FF7601"
+                        progressValueColor={'#333'}
+                        valueSuffix={'%'}
+                      />
+                    }
+                  />
+                </View>
+              )}
+            />
+            {/* list carousel */}
+            {/* News and Offers */}
+            <Text style={styles.headings}>News & Offers</Text>
+            <Image source={require('../../../assets/images/advert.png')} style={styles.adImg} />
+            <Spacer height={15} />
+            {/* Quick Actions */}
+            <Text style={styles.headings}>Quick Actions</Text>
+            <Spacer height={5} />
+            <FlatList
+              numColumns={2}
+              columnWrapperStyle={styles.menuR}
+              contentContainerStyle={{ flex: 1 }}
+              keyExtractor={(_, index) => index.toString()}
+              data={actionsData}
+              renderItem={({ item, index }) => (
+                <View style={{ overflow: 'hidden', marginBottom: 20 }}>
+                  <QuickActionMenu
+                    title={item.title}
+                    icon={item.icon}
+                    description={item.description}
+                    onPress={() => {}}
+                    backdrop={item.backdrop}
+                    isExclusive={index === 3}
+                    badge={<Master />}
+                  />
+                </View>
+              )}
+            />
           </Container>
-        </SafeAreaView>
-        {/* <Text style={{ fontFamily: FONT_FAMILY_TOMATO_REGULAR }}>Here is the App</Text>
-        <Spacer height={20} />
-        <Button onPress={() => {}} variant="FILLED">
-          Proceed
-        </Button>
-        <Spacer height={20} />
-        <InputField
-          value=""
-          label="Electricity Provider"
-          labelSecondary={<Text>Choose Beneficiary</Text>}
-          onChangeText={() => {}}
-          placeholder="Ikeja Electric (IKEDC)"
-          icon={<CaretDown />}
-          iconPosition="right"
-        />
-        <InputField
-          value=""
-          onChangeText={() => {}}
-          placeholder="Enter Meter number"
-          label="Meter Number"
-          icon={<CaretDown />}
-          iconPosition="right"
-        />
-        <InputField
-          value=""
-          label="Choose Plan"
-          onChangeText={() => {}}
-          placeholder="Select a Plan"
-          icon={<CaretDown />}
-          iconPosition="right"
-        /> */}
-      </ImageBackground>
-      <Spacer height={15} />
-
-      <View style={{ backgroundColor: WHITE, flex: 1 }}>
-        <Container>
-          {/* To do List  */}
-          <Spacer height={5} />
-          <View
-            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}
-          >
-            <Text style={styles.headings}>To-Do List</Text>
-            <View style={styles.paginationContainer}>
-              {Todos.map((_, index) => (
-                <View
-                  key={index}
-                  style={[
-                    styles.dot,
-                    { backgroundColor: activeIndex === index ? GRAY_DARK : '#C4C4C4' },
-                    { width: activeIndex === index ? 18 : 5 },
-                  ]}
-                />
-              ))}
-            </View>
-          </View>
-          <FlatList
-            ref={flatListRef}
-            data={Todos}
-            keyExtractor={(_, index) => index.toString()}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            snapToInterval={WINDOW_WIDTH * 0.8 + 10} // Adjust for item width and gap
-            decelerationRate="fast"
-            pagingEnabled
-            onViewableItemsChanged={onViewRef.current}
-            viewabilityConfig={viewConfigRef.current}
-            contentContainerStyle={{ gap: 10 }}
-            renderItem={({ item, index }) => (
-              <View style={{ overflow: 'hidden', marginBottom: 20, width: WINDOW_WIDTH * 0.8 }}>
-                <TodoList
-                  title={item.title}
-                  icon={item.icon}
-                  description={item.description}
-                  onPress={() => {}}
-                  actiontext={item.actionText}
-                  hasProgress={index === 0}
-                  progressIndicator={
-                    <CircularProgress
-                      radius={15}
-                      value={25}
-                      duration={500}
-                      progressValueStyle={{
-                        fontSize: 9,
-                        fontFamily: FONT_FAMILY_TOMATO_BOLD,
-                        color: BLACK,
-                      }}
-                      inActiveStrokeColor={GRAY_DARK}
-                      inActiveStrokeOpacity={0.2}
-                      activeStrokeWidth={5}
-                      inActiveStrokeWidth={5}
-                      activeStrokeColor="#FF7601"
-                      progressValueColor={'#333'}
-                      valueSuffix={'%'}
-                    />
-                  }
-                />
-              </View>
-            )}
-          />
-          {/* list carousel */}
-          {/* News and Offers */}
-          <Text style={styles.headings}>News & Offers</Text>
-          <Image source={require('../../../assets/images/advert.png')} style={styles.adImg} />
-          <Spacer height={15} />
-          {/* Quick Actions */}
-          <Text style={styles.headings}>Quick Actions</Text>
-          <Spacer height={5} />
-
-          <FlatList
-            numColumns={2}
-            columnWrapperStyle={styles.menuR}
-            contentContainerStyle={{ flex: 1 }}
-            keyExtractor={(_, index) => index.toString()}
-            data={actionsData}
-            renderItem={({ item, index }) => (
-              <View style={{ overflow: 'hidden', marginBottom: 20 }}>
-                <QuickActionMenu
-                  title={item.title}
-                  icon={item.icon}
-                  description={item.description}
-                  onPress={() => {}}
-                  backdrop={item.backdrop}
-                />
-              </View>
-            )}
-          />
-        </Container>
-      </View>
-    </ScrollView>
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -267,7 +241,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
     borderColor: GRAY_DARK,
-    marginLeft: 104,
+    marginLeft: 112,
   },
   actionsCt: {
     flexDirection: 'row',

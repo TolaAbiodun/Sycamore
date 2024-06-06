@@ -1,12 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import {
   FONT_FAMILY_DMSANS_BOLD,
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_TOMATO_REGULAR,
   FONT_SIZE_12,
   FONT_SIZE_13,
-  FONT_SIZE_14,
 } from '@/styles/fonts';
 import { BLACK, SYC_SECONDARY, SYC_SECONDARY_FAINT } from '@/styles/colors';
 import { Spacer } from '@/components';

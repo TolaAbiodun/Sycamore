@@ -20,11 +20,21 @@ interface ActionProps {
   backdrop: ColorValue;
   onPress?: () => void;
   icon: ReactNode;
+  badge?: ReactNode;
   title: string;
   description: string;
+  isExclusive?: boolean;
 }
 
-const QuickActionMenu = ({ backdrop, onPress, icon, title, description }: ActionProps) => {
+const QuickActionMenu = ({
+  backdrop,
+  onPress,
+  icon,
+  title,
+  description,
+  isExclusive,
+  badge,
+}: ActionProps) => {
   return (
     <TouchableOpacity
       style={[styles.ct, { backgroundColor: backdrop }]}
@@ -33,7 +43,14 @@ const QuickActionMenu = ({ backdrop, onPress, icon, title, description }: Action
     >
       <View>
         <Spacer height={10} />
-        {icon}
+        {isExclusive ? (
+          <View style={[styles.row, { padding: 0 }]}>
+            {icon}
+            {badge}
+          </View>
+        ) : (
+          icon
+        )}
         <Spacer height={15} />
         <Text style={styles.title}>{title}</Text>
         <Spacer height={5} />
@@ -70,5 +87,10 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_TOMATO_REGULAR,
     fontSize: 12,
     color: '#333',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });
