@@ -74,3 +74,33 @@ export const billTypes = [
   { id: 0, title: 'Electricity', icon: <Power />, bgColor: '#FCD9ED', bdColor: '#EB0086' },
   { id: 0, title: 'Cable', icon: <Cable />, bgColor: '#FFC899', bdColor: '#FF7600' },
 ];
+
+export const accountLevels = [
+  {
+    id: 0,
+    type: 'Tier 1',
+    icon: require('../assets/images/bronze.png'),
+    txnLimit: '₦50,000.00',
+    dailyLimit: '₦200,000.00',
+    level: true,
+    status: null,
+  },
+  {
+    id: 1,
+    type: 'Tier 2',
+    icon: require('../assets/images/silver.png'),
+    txnLimit: '₦500,000.00',
+    dailyLimit: '₦1,000,000.00',
+    level: false,
+    status: 'pending',
+  },
+  {
+    id: 2,
+    type: 'Tier 3',
+    icon: require('../assets/images/gold.png'),
+    txnLimit: '₦5,000,000.00',
+    dailyLimit: '₦5,000,000.00',
+    level: false,
+    status: null,
+  },
+];

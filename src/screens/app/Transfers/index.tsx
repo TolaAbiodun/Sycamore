@@ -32,7 +32,10 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
           dismissible
           toggleModal={handleToggleModal}
           action
-          handleAction={() => navigation.navigate('UpgradeAcct')}
+          handleAction={() => {
+            navigation.navigate('UpgradeAcct');
+            handleToggleModal();
+          }}
           actionText="Upgrade Account"
         />
       </Container>
