@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import {
   FONT_FAMILY_DMSANS_BOLD,
   FONT_FAMILY_DMSANS_MEDIUM,
+  FONT_FAMILY_TOMATO_MEDIUM,
   FONT_FAMILY_TOMATO_REGULAR,
   FONT_SIZE_12,
   FONT_SIZE_13,
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   title: {
-    fontFamily: FONT_FAMILY_DMSANS_BOLD,
+    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
     fontSize: FONT_SIZE_13,
     color: BLACK,
   },

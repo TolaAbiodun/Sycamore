@@ -12,11 +12,13 @@ import {
 } from 'react-native';
 import {
   FONT_FAMILY_DMSANS_BOLD,
+  FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
   FONT_SIZE_10,
   FONT_SIZE_14,
+  FONT_SIZE_15,
   FONT_SIZE_16,
   FONT_SIZE_20,
 } from '@/styles/fonts';
@@ -273,8 +275,8 @@ const styles = StyleSheet.create({
   },
   headings: {
     color: BLACK,
-    fontFamily: FONT_FAMILY_DMSANS_BOLD,
-    fontSize: FONT_SIZE_16,
+    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
+    fontSize: FONT_SIZE_15,
     marginBottom: 5,
   },
   adImg: {

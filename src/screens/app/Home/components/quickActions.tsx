@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    fontFamily: FONT_FAMILY_DMSANS_BOLD,
+    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
     fontSize: 15,
     color: BLACK,
   },
