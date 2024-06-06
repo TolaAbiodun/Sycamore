@@ -1,15 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Modal from 'react-native-modal';
-import { BLACK, GRAY_DARK, SYC_RED, WHITE } from '@/styles/colors';
+import { BLACK, WHITE } from '@/styles/colors';
 import {
   FONT_FAMILY_DMSANS_REGULAR,
-  FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
-  FONT_FAMILY_TOMATO_REGULAR,
   FONT_SIZE_14,
   FONT_SIZE_18,
 } from '@/styles/fonts';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from '..';
 import SvgClose from '../Icons/app/close';
 import SvgCheck from '../Icons/app/check';

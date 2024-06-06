@@ -46,7 +46,7 @@ const BillPaymentScreen = ({ navigation }: Props) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: WHITE }}>
       <Container>
         <GoBack title="Pay Bills" goBack />
-        <Spacer height={20} />
+        <Spacer height={10} />
       </Container>
       <ScrollView>
         <View style={styles.divider} />
@@ -74,7 +74,6 @@ const BillPaymentScreen = ({ navigation }: Props) => {
           />
         </View>
         <Spacer height={20} />
-
         <View style={styles.divider} />
         {/* Inputs */}
         <Container>

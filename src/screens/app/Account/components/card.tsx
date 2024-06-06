@@ -9,12 +9,9 @@ import {
 } from '@/styles/colors';
 import {
   FONT_FAMILY_DMSANS_REGULAR,
-  FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
-  FONT_SIZE_10,
   FONT_SIZE_12,
   FONT_SIZE_14,
-  FONT_SIZE_15,
   FONT_SIZE_16,
 } from '@/styles/fonts';
 import { ReactNode } from 'react';

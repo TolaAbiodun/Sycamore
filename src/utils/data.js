@@ -104,3 +104,46 @@ export const accountLevels = [
     status: null,
   },
 ];
+
+export const beneficiaries = [
+  { id: 0, name: 'Adetola Abiodun' },
+  { id: 1, name: 'Alimi Godfrey' },
+  { id: 2, name: 'Alex Emioluwa' },
+  { id: 3, name: 'kalid Makanju' },
+  { id: 4, name: 'Samuel Jones' },
+  { id: 5, name: 'Biola Davies' },
+  { id: 6, name: 'John Smith' },
+  { id: 7, name: 'Chibuzor Davies' },
+  { id: 8, name: 'Bola Aderin' },
+];
+
+export const transactions = [
+  {
+    id: 0,
+    icon: require('../assets/images/access.png'),
+    title: 'Adetola Joshua Abiodun',
+    value: '450,000',
+    createdAt: '2024-06-01T12:23:45.678Z',
+  },
+  {
+    id: 1,
+    icon: require('../assets/images/monipoint.jpeg'),
+    title: 'Precious Odum',
+    value: '5,100',
+    createdAt: '2024-06-01T09:34:56.789Z',
+  },
+  {
+    id: 2,
+    icon: require('../assets/images/zenith.png'),
+    title: 'Bunmi Otoboh',
+    value: '47,000',
+    createdAt: '2024-06-05T09:34:56.789Z',
+  },
+  {
+    id: 3,
+    icon: require('../assets/images/logo.png'),
+    title: 'Daniel Anyaegbu ',
+    value: '540,000',
+    createdAt: '2024-06-04T09:34:56.789Z',
+  },
+];
