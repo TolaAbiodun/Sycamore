@@ -1,4 +1,4 @@
-import { ColorValue, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ColorValue, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactNode } from 'react';
 import { Spacer } from '@/components';
 import {
@@ -15,6 +15,7 @@ import {
   FONT_SIZE_16,
 } from '@/styles/fonts';
 import { BLACK, GRAY_DARK } from '@/styles/colors';
+import { WINDOW_WIDTH } from '@/styles/mixins';
 
 interface ActionProps {
   backdrop: ColorValue;
@@ -66,8 +67,8 @@ const styles = StyleSheet.create({
   ct: {
     padding: 15,
     borderRadius: 15,
-    width: 175,
-    height: 160,
+    width: WINDOW_WIDTH * 0.44,
+    height: 155,
     shadowColor: '#333',
     shadowOffset: {
       width: 0,
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 1,
     justifyContent: 'space-between',
   },
   title: {

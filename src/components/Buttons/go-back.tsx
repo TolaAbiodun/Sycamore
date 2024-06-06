@@ -1,9 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
 import SvgBackButton from '../Icons/app/goback';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
-import { FONT_FAMILY_TOMATO_MEDIUM, FONT_SIZE_20 } from '@/styles/fonts';
+import {
+  FONT_FAMILY_TOMATO_MEDIUM,
+  FONT_SIZE_16,
+  FONT_SIZE_18,
+  FONT_SIZE_20,
+} from '@/styles/fonts';
 import { BLACK } from '@/styles/colors';
 
 const GoBack = ({
@@ -46,12 +50,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     // width: '60%',
-    // paddingTop: 15,
+    paddingTop: Platform.OS === 'android' ? 15 : 5,
     paddingBottom: 5,
   },
   headertext: {
     fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
-    fontSize: FONT_SIZE_20,
+    fontSize: FONT_SIZE_18,
     color: BLACK,
   },
   arrow: {

@@ -4,31 +4,23 @@ import {
   FlatList,
   Image,
   ImageBackground,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Button, Container, InputField, Spacer } from '@/components';
-import CaretDown from '@/components/Icons/app/caret-down';
 import {
   FONT_FAMILY_DMSANS_BOLD,
-  FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
-  FONT_FAMILY_TOMATO_REGULAR,
   FONT_SIZE_10,
-  FONT_SIZE_11,
-  FONT_SIZE_12,
   FONT_SIZE_14,
   FONT_SIZE_16,
   FONT_SIZE_20,
 } from '@/styles/fonts';
-import { BLACK, GRAY_DARK, GRAY_MEDIUM, SYC_SECONDARY, WHITE } from '@/styles/colors';
-import Notification from '@/components/Icons/app/notification';
+import { BLACK, GRAY_DARK, WHITE } from '@/styles/colors';
 import Copy from '@/components/Icons/app/copy';
 import Naira from '@/components/Icons/app/naira';
 import ArrowFoward from '@/components/Icons/app/arrow-foward';
@@ -42,11 +34,11 @@ import { Todos, actionsData } from '@/utils/data';
 import TodoList from './components/todo';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import { useRef, useState } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import DynamicHeader from './components/header';
 import Master from '@/components/Icons/app/master';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AppStackList } from '@/navigation/app-navigator';
+import { Container, Spacer } from '@/components';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 
@@ -69,7 +61,7 @@ const HomeScreen = ({ navigation }: Props) => {
 
   return (
     <>
-      <DynamicHeader animHeaderValue={scrollOffsetY} />
+      <DynamicHeader />
       <ScrollView
         contentContainerStyle={{ backgroundColor: WHITE, paddingBottom: 50 }}
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }], {
@@ -89,14 +81,16 @@ const HomeScreen = ({ navigation }: Props) => {
                 </Text>
                 <Spacer height={10} />
                 <View style={styles.header}>
-                  <View style={[styles.row, { gap: 2 }]}>
-                    <Naira />
-                    <Text style={styles.bal}>53,754.00</Text>
+                  <View style={[styles.row, { justifyContent: 'space-between', width: '100%' }]}>
+                    <View style={[styles.row, { gap: 2 }]}>
+                      <Naira />
+                      <Text style={styles.bal}>53,754.00</Text>
+                    </View>
+                    <TouchableOpacity style={[styles.row, styles.btn]} activeOpacity={0.7}>
+                      <Text style={[styles.txtReg, { fontSize: FONT_SIZE_10 }]}>View History</Text>
+                      <ArrowFoward />
+                    </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={[styles.row, styles.btn]} activeOpacity={0.7}>
-                    <Text style={[styles.txtReg, { fontSize: FONT_SIZE_10 }]}>View History</Text>
-                    <ArrowFoward />
-                  </TouchableOpacity>
                 </View>
                 <Spacer height={15} />
                 <View style={styles.row}>
@@ -112,7 +106,13 @@ const HomeScreen = ({ navigation }: Props) => {
               {/* Call to Actions */}
               <View style={styles.actionsCt}>
                 <MenuAction title="Fund Wallet" onPress={() => {}} icon={<PlusCircle />} />
-                <MenuAction title="Send Money" onPress={() => {}} icon={<PlaneTilt />} />
+                <MenuAction
+                  title="Send Money"
+                  onPress={() => {
+                    navigation.navigate('Transfers');
+                  }}
+                  icon={<PlaneTilt />}
+                />
                 <MenuAction
                   title="Pay Bills"
                   onPress={() => {
@@ -125,7 +125,6 @@ const HomeScreen = ({ navigation }: Props) => {
             <Spacer height={10} />
           </ImageBackground>
           <Spacer height={10} />
-
           <Container>
             {/* To do List  */}
             <View style={[styles.row, { justifyContent: 'space-between' }]}>
@@ -241,8 +240,9 @@ const styles = StyleSheet.create({
   },
   txtReg: { color: WHITE, fontFamily: FONT_FAMILY_TOMATO_MEDIUM, fontSize: FONT_SIZE_14 },
   balCt: {
-    padding: 15,
-    marginTop: 15,
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 15,
     backgroundColor: BLACK,
     borderRadius: 20,
     borderWidth: 1,
@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
     borderColor: GRAY_DARK,
-    marginLeft: 112,
   },
   actionsCt: {
     flexDirection: 'row',
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({
   menuR: {
     flex: 1,
     alignItems: 'center',
-    gap: 10,
+    gap: 15,
   },
 
   paginationContainer: {

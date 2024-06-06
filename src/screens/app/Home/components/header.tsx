@@ -1,52 +1,33 @@
 import { Container, Spacer } from '@/components';
-import ArrowFoward from '@/components/Icons/app/arrow-foward';
-import Copy from '@/components/Icons/app/copy';
-import Naira from '@/components/Icons/app/naira';
 import Notification from '@/components/Icons/app/notification';
 import { BLACK, GRAY_DARK, WHITE } from '@/styles/colors';
 import {
-  FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
-  FONT_SIZE_10,
   FONT_SIZE_14,
   FONT_SIZE_20,
 } from '@/styles/fonts';
-import { Text, StyleSheet, Animated, View, Image, ImageBackground } from 'react-native';
+import { Text, StyleSheet, View, Image, ImageBackground } from 'react-native';
 
-const Header_Max_Height = 100;
-const Header_Min_Height = 100;
-
-const DynamicHeader = ({ animHeaderValue }: any) => {
-  const animateHeaderHeight = animHeaderValue.interpolate({
-    inputRange: [0, Header_Max_Height - Header_Min_Height],
-    outputRange: [Header_Max_Height, Header_Min_Height],
-    extrapolate: 'clamp',
-  });
-
+const DynamicHeader = () => {
   return (
-    <Animated.View
-      style={[
-        {
-          height: animateHeaderHeight,
-        },
-      ]}
+    <ImageBackground
+      source={require('../../../../assets/images/backdrop.png')}
+      style={{ paddingTop: 15 }}
     >
-      <ImageBackground source={require('../../../../assets/images/backdrop.png')}>
-        <Container>
-          {/* Header View here */}
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View style={styles.row}>
-              <Image source={require('../../../../assets/images/user.png')} />
-              <Text style={styles.txtReg}>Hello, User</Text>
-            </View>
-            {/* Notificatiion */}
-            <Notification />
+      <Container>
+        {/* Header View here */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={styles.row}>
+            <Image source={require('../../../../assets/images/user.png')} />
+            <Text style={styles.txtReg}>Hello, Adetola</Text>
           </View>
-          <Spacer height={15} />
-        </Container>
-      </ImageBackground>
-    </Animated.View>
+          {/* Notificatiion */}
+          <Notification />
+        </View>
+        <Spacer height={15} />
+      </Container>
+    </ImageBackground>
   );
 };
 

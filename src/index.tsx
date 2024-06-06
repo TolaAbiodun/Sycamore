@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import RootNavigator from './navigation';
 import SplashScreen from './screens/loaders/splash';
+import { StatusBar } from 'react-native';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,7 +17,12 @@ const App = () => {
   useEffect(() => {
     loadAppConfig();
   }, []);
-  return !isLoaded ? <SplashScreen /> : <RootNavigator />;
+  return (
+    <>
+      <StatusBar animated={true} barStyle="light-content" backgroundColor="#000" />
+      {!isLoaded ? <SplashScreen /> : <RootNavigator />}
+    </>
+  );
 };
 
 export default App;
