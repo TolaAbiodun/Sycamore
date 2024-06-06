@@ -15,6 +15,10 @@ import Portfolio from '@/components/Icons/navigation/portfolio';
 import LoanFriends from '@/components/Icons/navigation/loan-friends';
 import Contribution from '@/components/Icons/navigation/contribution';
 import More from '@/components/Icons/navigation/more';
+import PortfolioScreen from '@/screens/app/Portfolio';
+import LoanFriendsScreen from '@/screens/app/Loans';
+import ContributionScreen from '@/screens/app/Contribution';
+import MoreScreen from '@/screens/app/More';
 
 export type TabStackList = {
   Home: undefined;
@@ -57,28 +61,28 @@ export const BottomNavigator = () => {
       />
       <Tab.Screen
         name="Portfolio"
-        component={HomeScreen}
+        component={PortfolioScreen}
         options={{
           tabBarIcon: ({ color, focused }) => <Portfolio active={focused} />,
         }}
       />
       <Tab.Screen
         name="Loan Friends"
-        component={HomeScreen}
+        component={LoanFriendsScreen}
         options={{
           tabBarIcon: ({ color, focused }) => <LoanFriends active={focused} />,
         }}
       />
       <Tab.Screen
         name="Contribution"
-        component={HomeScreen}
+        component={ContributionScreen}
         options={{
           tabBarIcon: ({ color, focused }) => <Contribution active={focused} />,
         }}
       />
       <Tab.Screen
         name="More"
-        component={HomeScreen}
+        component={MoreScreen}
         options={{
           tabBarIcon: ({ color, focused }) => <More active={focused} />,
         }}
