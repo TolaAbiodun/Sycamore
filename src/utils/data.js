@@ -1,3 +1,4 @@
+import Cable from '@/components/Icons/app/cable';
 import Data from '@/components/Icons/app/data';
 import Investment from '@/components/Icons/app/investment';
 import Loan from '@/components/Icons/app/loan';
@@ -5,7 +6,9 @@ import Misc1 from '@/components/Icons/app/misc_1';
 import Misc2 from '@/components/Icons/app/misc_2';
 import Money from '@/components/Icons/app/money';
 import Money2 from '@/components/Icons/app/money2';
+import Power from '@/components/Icons/app/power';
 import Savings from '@/components/Icons/app/savings';
+import Sim from '@/components/Icons/app/sim';
 import Upgrade from '@/components/Icons/app/upgrade';
 
 export const actionsData = [
@@ -63,4 +66,11 @@ export const Todos = [
     actionText: 'Tap to create tag',
     icon: <Misc2 />,
   },
+];
+
+export const billTypes = [
+  { id: 0, title: 'Airtime', icon: <Sim />, bgColor: '#A6C2FA', bdColor: '#2166F3' },
+  { id: 0, title: 'Data', icon: <Data />, bgColor: '#C5B9F4', bdColor: '#6D51E4' },
+  { id: 0, title: 'Electricity', icon: <Power />, bgColor: '#FCD9ED', bdColor: '#EB0086' },
+  { id: 0, title: 'Cable', icon: <Cable />, bgColor: '#FFC899', bdColor: '#FF7600' },
 ];

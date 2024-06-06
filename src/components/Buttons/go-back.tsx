@@ -23,6 +23,7 @@ const GoBack = ({
       <TouchableOpacity
         activeOpacity={0.5}
         style={styles.arrowWrapper}
+        hitSlop={10}
         onPress={() => {
           if (onPress) {
             onPress();

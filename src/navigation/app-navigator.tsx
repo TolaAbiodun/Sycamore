@@ -5,13 +5,11 @@ import PortfolioScreen from '@/screens/app/Portfolio';
 import LoanFriendsScreen from '@/screens/app/Loans';
 import MoreScreen from '@/screens/app/More';
 import ContributionScreen from '@/screens/app/Contribution';
+import BillPaymentScreen from '@/screens/app/Bills';
 
 export type AppStackList = {
   TabNav: { screen: string };
-  Portfolio: undefined;
-  LoanFriends: undefined;
-  Contribution: undefined;
-  More: undefined;
+  BillPayment: undefined;
 };
 
 const Stack = createNativeStackNavigator<AppStackList>();
@@ -27,6 +25,7 @@ const AppNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="TabNav" screenOptions={screenOptions}>
       <Stack.Screen name="TabNav" component={BottomNavigator} />
+      <Stack.Screen name="BillPayment" component={BillPaymentScreen} />
     </Stack.Navigator>
   );
 };

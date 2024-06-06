@@ -45,8 +45,16 @@ import { useRef, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import DynamicHeader from './components/header';
 import Master from '@/components/Icons/app/master';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppStackList } from '@/navigation/app-navigator';
 
-const HomeScreen = () => {
+type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
+
+type Props = {
+  navigation: NavigatorProps;
+};
+
+const HomeScreen = ({ navigation }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
@@ -105,7 +113,13 @@ const HomeScreen = () => {
               <View style={styles.actionsCt}>
                 <MenuAction title="Fund Wallet" onPress={() => {}} icon={<PlusCircle />} />
                 <MenuAction title="Send Money" onPress={() => {}} icon={<PlaneTilt />} />
-                <MenuAction title="Pay Bills" onPress={() => {}} icon={<Reciept />} />
+                <MenuAction
+                  title="Pay Bills"
+                  onPress={() => {
+                    navigation.navigate('BillPayment');
+                  }}
+                  icon={<Reciept />}
+                />
               </View>
             </Container>
             <Spacer height={10} />

@@ -1,40 +1,35 @@
-import { ALERT, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import React, { ReactNode } from 'react';
+import { scale } from 'react-native-size-matters';
 import {
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
-  FONT_SIZE_12,
   FONT_SIZE_14,
 } from '@/styles/fonts';
-import React, { ReactNode } from 'react';
-import { View, Text, TextInput, StyleSheet, TextInputProps } from 'react-native';
-import { scale } from 'react-native-size-matters';
+import { GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
 
-interface Props extends TextInputProps {
+interface Props {
   iconPosition?: string;
   icon?: any;
   iconSecondary?: React.ReactNode;
   inputContainerStyle?: any;
-  style?: TextInputProps;
+  style?: ViewStyle;
   value: string;
   label?: string;
-  error?: string;
   hasLargeText?: boolean;
   labelSecondary?: ReactNode;
+  onPress: () => void;
 }
 
-const InputField = ({
-  onChangeText,
+const CustomInputSelector = ({
   iconPosition,
   icon,
   iconSecondary,
-  inputContainerStyle,
-  style,
   value,
   label,
   labelSecondary,
-  error,
   hasLargeText,
-  ...props
+  onPress,
 }: Props) => {
   const [focused, setFocused] = React.useState(false);
 
@@ -48,25 +43,8 @@ const InputField = ({
     }
   };
 
-  const getBorderWidth = () => {
-    if (focused) {
-      return scale(1);
-    }
-  };
-
-  const getBorderColor = () => {
-    if (error) {
-      return ALERT;
-    }
-
-    if (focused) {
-      return SYC_PRIMARY;
-    } else {
-      return GRAY_MEDIUM;
-    }
-  };
   return (
-    <View style={[styles.inputContainer, inputContainerStyle]}>
+    <View style={[styles.inputContainer]}>
       <View style={styles.labelCt}>
         {label && <Text style={[styles.inputLabel]}>{label}</Text>}
         {labelSecondary && <View>{labelSecondary}</View>}
@@ -78,36 +56,26 @@ const InputField = ({
           { alignItems: icon ? 'center' : 'baseline' },
           // eslint-disable-next-line react-native/no-inline-styles
           {
-            borderColor: getBorderColor(),
             flexDirection: getFlexDirection(),
-            borderWidth: getBorderWidth(),
             backgroundColor: '#f5f5f5',
           },
         ]}
       >
-        <View>{icon && icon}</View>
-        <TextInput
-          style={[styles.textInput, style]}
-          onChangeText={onChangeText}
-          value={value}
-          onFocus={() => {
-            setFocused(true);
-          }}
-          onBlur={() => {
-            setFocused(false);
-          }}
-          placeholderTextColor={GRAY_MEDIUM}
-          {...props}
-        />
-        <View>{iconSecondary && iconSecondary}</View>
+        <TouchableOpacity
+          onPress={onPress}
+          activeOpacity={0.7}
+          hitSlop={20}
+          style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between' }}
+        >
+          <Text>{value}</Text>
+          <View>{icon && icon}</View>
+        </TouchableOpacity>
       </View>
-
-      {error !== '' && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 };
 
-export default InputField;
+export default CustomInputSelector;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -145,11 +113,6 @@ const styles = StyleSheet.create({
     padding: scale(5),
   },
 
-  error: {
-    color: ALERT,
-    paddingTop: scale(4),
-    fontSize: FONT_SIZE_12,
-  },
   labelCt: {
     flexDirection: 'row',
     justifyContent: 'space-between',
