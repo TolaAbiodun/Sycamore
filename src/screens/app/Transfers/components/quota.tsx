@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { SYC_GREEN } from '@/styles/colors';
+import { BLACK, SYC_GREEN } from '@/styles/colors';
 import PlaneTilt2 from '@/components/Icons/app/planetilt2';
 import { FONT_FAMILY_DMSANS_BOLD, FONT_FAMILY_DMSANS_REGULAR, FONT_SIZE_13 } from '@/styles/fonts';
 
@@ -8,7 +8,10 @@ const TransferQuota = ({ quota }: { quota: number }) => {
     <View style={styles.ct}>
       <PlaneTilt2 />
       <Text style={styles.txt}>
-        You have <Text style={{ fontFamily: FONT_FAMILY_DMSANS_BOLD }}>{quota} free transfers</Text>{' '}
+        You have{' '}
+        <Text style={{ fontFamily: FONT_FAMILY_DMSANS_BOLD, color: BLACK }}>
+          {quota} free transfers
+        </Text>{' '}
         left this month
       </Text>
     </View>
@@ -31,5 +34,6 @@ const styles = StyleSheet.create({
   txt: {
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
     fontSize: FONT_SIZE_13,
+    color: '#333',
   },
 });

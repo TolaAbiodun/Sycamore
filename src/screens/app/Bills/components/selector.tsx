@@ -6,7 +6,7 @@ import {
   FONT_FAMILY_DMSANS_REGULAR,
   FONT_SIZE_14,
 } from '@/styles/fonts';
-import { GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
+import { GRAY_DARK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
 
 interface Props {
   iconPosition?: string;
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
   val: {
     fontSize: FONT_SIZE_14,
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
+    color: GRAY_DARK,
   },
 
   labelCt: {

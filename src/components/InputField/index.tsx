@@ -1,4 +1,4 @@
-import { ALERT, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
+import { ALERT, BLACK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
 import {
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
     width: '100%',
     padding: scale(5),
+    color: BLACK,
   },
 
   error: {

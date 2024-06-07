@@ -1,4 +1,4 @@
-import { ColorValue, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ColorValue, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactNode } from 'react';
 import { FONT_FAMILY_TOMATO_MEDIUM, FONT_SIZE_12, FONT_SIZE_14 } from '@/styles/fonts';
 import { WHITE } from '@/styles/colors';
@@ -36,8 +36,8 @@ export default BillType;
 
 const styles = StyleSheet.create({
   ct: {
-    width: 80,
-    height: 80,
+    width: Platform.OS === 'ios' ? 80 : 70,
+    height: Platform.OS === 'ios' ? 80 : 70,
     gap: 10,
     borderWidth: 1,
     borderRadius: 10,

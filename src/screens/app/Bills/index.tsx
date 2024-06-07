@@ -4,8 +4,10 @@ import CaretDown from '@/components/Icons/app/caret-down';
 import { AppStackList } from '@/navigation/app-navigator';
 import { BLACK, GRAY_DARK, SYC_GREEN, WHITE } from '@/styles/colors';
 import {
+  FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_MEDIUM,
   FONT_FAMILY_TOMATO_REGULAR,
+  FONT_SIZE_10,
   FONT_SIZE_12,
   FONT_SIZE_14,
   FONT_SIZE_16,
@@ -81,7 +83,7 @@ const BillPaymentScreen = ({ navigation }: Props) => {
           <CustomInputSelector
             label="Electricity Provider"
             labelSecondary={
-              <Text>
+              <Text style={styles.txtSec}>
                 Choose Beneficiary <ArrowUpRight />
               </Text>
             }
@@ -101,7 +103,7 @@ const BillPaymentScreen = ({ navigation }: Props) => {
           />
           <CustomInputSelector
             label="Choose Plan"
-            labelSecondary={<Text>Balance: ****</Text>}
+            labelSecondary={<Text style={styles.txtSec}>Balance: ****</Text>}
             icon={<CaretDown />}
             iconPosition="right"
             value="Select a plan"
@@ -157,6 +159,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
     fontSize: FONT_SIZE_16,
     paddingVertical: 10,
+    color: BLACK,
   },
   pd: {
     paddingHorizontal: 15,
@@ -174,5 +177,10 @@ const styles = StyleSheet.create({
     marginLeft: -10,
     textDecorationLine: 'none',
     color: BLACK,
+  },
+  txtSec: {
+    color: BLACK,
+    fontFamily: FONT_FAMILY_DMSANS_REGULAR,
+    fontSize: FONT_SIZE_10,
   },
 });

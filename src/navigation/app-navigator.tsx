@@ -5,6 +5,7 @@ import BillPaymentScreen from '@/screens/app/Bills';
 import MoneyTransferScreen from '@/screens/app/Transfers';
 import AccountUpgradeScreen from '@/screens/app/Account/upgrade';
 import LocalTransferScreen from '@/screens/app/Transfers/localTransfer';
+import BanksScreen from '@/screens/app/Transfers/banks';
 
 export type AppStackList = {
   TabNav: { screen: string };
@@ -12,6 +13,7 @@ export type AppStackList = {
   Transfers: undefined;
   UpgradeAcct: undefined;
   LocalTransfers: undefined;
+  Banks: undefined;
 };
 
 const Stack = createNativeStackNavigator<AppStackList>();
@@ -31,6 +33,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Transfers" component={MoneyTransferScreen} />
       <Stack.Screen name="UpgradeAcct" component={AccountUpgradeScreen} />
       <Stack.Screen name="LocalTransfers" component={LocalTransferScreen} />
+      <Stack.Screen name="Banks" component={BanksScreen} />
     </Stack.Navigator>
   );
 };

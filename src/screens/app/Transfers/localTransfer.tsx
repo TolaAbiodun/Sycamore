@@ -1,15 +1,13 @@
 import {
   FlatList,
-  Image,
   Pressable,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Button, Container, GoBack, InputField, Spacer } from '@/components';
 import CustomInputSelector from '../Bills/components/selector';
 import CaretDown from '@/components/Icons/app/caret-down';
@@ -27,9 +25,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { AppStackList } from '@/navigation/app-navigator';
 import Transaction from './components/transactions';
 import moment from 'moment';
-import { banks, transactions } from '@/utils/data';
+import { transactions } from '@/utils/data';
 import TransferQuota from './components/quota';
-import BottomSheet, { BottomSheetBackdrop, BottomSheetBackdropProps } from '@gorhom/bottom-sheet';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 
@@ -37,36 +34,9 @@ type Props = {
   navigation: NavigatorProps;
 };
 
-const Bank = ({ imgUrl, name, onPress }: { imgUrl: string; name: string; onPress: () => void }) => {
-  return (
-    <TouchableOpacity style={styles.bnkCt} onPress={onPress}>
-      <Image source={{ uri: imgUrl }} style={styles.img} />
-      <Text style={styles.bnk}>{name}</Text>
-    </TouchableOpacity>
-  );
-};
-
 const LocalTransferScreen = ({ navigation }: Props) => {
   const [bankAcct, setBankAcct] = useState('');
-  const sheetRef = useRef<BottomSheet>(null);
 
-  const expandAction = useCallback(() => {
-    sheetRef.current?.snapToIndex(0);
-  }, [sheetRef]);
-
-  const snapPoints = useMemo(() => ['85%', '95%'], []);
-
-  const renderBackDrop = useCallback(
-    (props: BottomSheetBackdropProps) => (
-      <BottomSheetBackdrop
-        {...props}
-        disappearsOnIndex={-1}
-        appearsOnIndex={0}
-        pressBehavior="close"
-      />
-    ),
-    []
-  );
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: WHITE }}>
       <Container>
@@ -91,7 +61,9 @@ const LocalTransferScreen = ({ navigation }: Props) => {
             label="Bank"
             iconPosition="right"
             value="Select Bank"
-            onPress={expandAction}
+            onPress={() => {
+              navigation.navigate('Banks');
+            }}
           />
           <Spacer height={30} />
           <Button variant="FILLED" onPress={() => {}}>
@@ -124,35 +96,6 @@ const LocalTransferScreen = ({ navigation }: Props) => {
             contentContainerStyle={{ gap: 10 }}
           />
         </ScrollView>
-        <BottomSheet
-          backdropComponent={renderBackDrop}
-          ref={sheetRef}
-          index={-1}
-          snapPoints={snapPoints}
-          enablePanDownToClose
-          keyboardBehavior="extend"
-          backgroundStyle={{ backgroundColor: WHITE }}
-        >
-          <Container>
-            <Spacer height={10} />
-            <Text style={styles.header}>Choose Bank</Text>
-            <Spacer height={10} />
-            <InputField placeholder="Search Bank Name" value="" onChangeText={() => {}} />
-            <Text style={styles.section}>Available Banks</Text>
-            <Spacer height={10} />
-            {/* Bank List */}
-            <FlatList
-              data={banks}
-              showsHorizontalScrollIndicator={false}
-              keyExtractor={(_, index) => index.toString()}
-              renderItem={({ item }) => (
-                <Bank imgUrl={item.logo} name={item.name} onPress={() => console.log(item.name)} />
-              )}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ gap: 10, paddingBottom: 400 }}
-            />
-          </Container>
-        </BottomSheet>
       </Container>
     </SafeAreaView>
   );
