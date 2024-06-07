@@ -53,7 +53,7 @@ export default QuickActionMenu;
 
 const styles = StyleSheet.create({
   ct: {
-    padding: 15,
+    padding: 10,
     borderRadius: 15,
     width: WINDOW_WIDTH * 0.44,
     height: 155,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   desc: {
     fontFamily: FONT_FAMILY_TOMATO_REGULAR,
-    fontSize: 12,
+    fontSize: 10,
     color: '#333',
   },
   row: {

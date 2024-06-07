@@ -1,7 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactNode } from 'react';
 import { BLACK, WHITE } from '@/styles/colors';
-import { FONT_FAMILY_TOMATO_MEDIUM, FONT_SIZE_12, FONT_SIZE_14 } from '@/styles/fonts';
+import {
+  FONT_FAMILY_TOMATO_MEDIUM,
+  FONT_SIZE_11,
+  FONT_SIZE_12,
+  FONT_SIZE_14,
+} from '@/styles/fonts';
+import { scale } from 'react-native-size-matters';
 
 interface MenuProps {
   title: string;
@@ -30,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    width: 110,
+    width: scale(100),
   },
-  title: { color: WHITE, fontFamily: FONT_FAMILY_TOMATO_MEDIUM, fontSize: FONT_SIZE_12 },
+  title: { color: WHITE, fontFamily: FONT_FAMILY_TOMATO_MEDIUM, fontSize: FONT_SIZE_11 },
 });

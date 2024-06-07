@@ -112,9 +112,9 @@ export const beneficiaries = [
   { id: 3, name: 'kalid Makanju' },
   { id: 4, name: 'Samuel Jones' },
   { id: 5, name: 'Biola Davies' },
-  { id: 6, name: 'John Smith' },
+  { id: 6, name: 'Samuel Smith' },
   { id: 7, name: 'Chibuzor Davies' },
-  { id: 8, name: 'Bola Aderin' },
+  { id: 8, name: 'Bola Aderinsola' },
 ];
 
 export const transactions = [
