@@ -85,12 +85,7 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
           <Spacer height={20} />
           {/* Call to Actions */}
           <Actions
-            icon={
-              <Image
-                source={require('../../../assets/images/tag.png')}
-                style={{ width: 30, height: 30, marginLeft: -10 }}
-              />
-            }
+            icon={<Image source={require('../../../assets/images/tag.jpeg')} style={styles.img} />}
             title="Send to a Tag"
             desc="Transfer to a user using #tag"
             onPress={() => {}}
@@ -169,4 +164,5 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
     paddingHorizontal: 15,
   },
+  img: { width: 30, height: 30, marginLeft: -10 },
 });
