@@ -212,6 +212,7 @@ const HomeScreen = ({ navigation }: Props) => {
               contentContainerStyle={{ flex: 1 }}
               keyExtractor={(_, index) => index.toString()}
               data={actionsData}
+              scrollEnabled={false}
               renderItem={({ item, index }) => (
                 <View style={{ overflow: 'hidden', marginBottom: 20 }}>
                   <QuickActionMenu
