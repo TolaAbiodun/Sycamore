@@ -11,15 +11,12 @@ import {
   View,
 } from 'react-native';
 import {
-  FONT_FAMILY_DMSANS_BOLD,
-  FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_BOLD,
   FONT_FAMILY_TOMATO_MEDIUM,
   FONT_SIZE_10,
   FONT_SIZE_14,
   FONT_SIZE_15,
-  FONT_SIZE_16,
   FONT_SIZE_20,
 } from '@/styles/fonts';
 import { BLACK, GRAY_DARK, WHITE } from '@/styles/colors';

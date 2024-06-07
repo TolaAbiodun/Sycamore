@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import AlertModal from '@/components/ModalAlerts';
 import { Container, GoBack, Spacer } from '@/components';
 import { BLACK, SYC_GREEN, SYC_PRIMARY_FAINT, WHITE } from '@/styles/colors';
@@ -85,7 +85,12 @@ const MoneyTransferScreen = ({ navigation }: Props) => {
           <Spacer height={20} />
           {/* Call to Actions */}
           <Actions
-            icon={<PlaneTilt2 />}
+            icon={
+              <Image
+                source={require('../../../assets/images/tag.png')}
+                style={{ width: 30, height: 30, marginLeft: -10 }}
+              />
+            }
             title="Send to a Tag"
             desc="Transfer to a user using #tag"
             onPress={() => {}}

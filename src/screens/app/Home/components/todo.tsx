@@ -1,7 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ReactNode } from 'react';
 import {
-  FONT_FAMILY_DMSANS_BOLD,
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_TOMATO_MEDIUM,
   FONT_FAMILY_TOMATO_REGULAR,

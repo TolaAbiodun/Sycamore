@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { Button, Container, GoBack, InputField, Spacer } from '@/components';
 import CustomInputSelector from '../Bills/components/selector';
 import CaretDown from '@/components/Icons/app/caret-down';
@@ -29,12 +29,7 @@ import Transaction from './components/transactions';
 import moment from 'moment';
 import { banks, transactions } from '@/utils/data';
 import TransferQuota from './components/quota';
-import BottomSheet, {
-  BottomSheetBackdrop,
-  BottomSheetBackdropProps,
-  BottomSheetFlatList,
-  BottomSheetScrollView,
-} from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetBackdrop, BottomSheetBackdropProps } from '@gorhom/bottom-sheet';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 

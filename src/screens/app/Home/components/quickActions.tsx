@@ -1,20 +1,8 @@
-import { ColorValue, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ColorValue, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactNode } from 'react';
 import { Spacer } from '@/components';
-import {
-  FONT_FAMILY_DMSANS_BOLD,
-  FONT_FAMILY_DMSANS_MEDIUM,
-  FONT_FAMILY_DMSANS_REGULAR,
-  FONT_FAMILY_TOMATO_BOLD,
-  FONT_FAMILY_TOMATO_MEDIUM,
-  FONT_FAMILY_TOMATO_REGULAR,
-  FONT_SIZE_10,
-  FONT_SIZE_12,
-  FONT_SIZE_13,
-  FONT_SIZE_14,
-  FONT_SIZE_16,
-} from '@/styles/fonts';
-import { BLACK, GRAY_DARK } from '@/styles/colors';
+import { FONT_FAMILY_TOMATO_MEDIUM, FONT_FAMILY_TOMATO_REGULAR } from '@/styles/fonts';
+import { BLACK } from '@/styles/colors';
 import { WINDOW_WIDTH } from '@/styles/mixins';
 
 interface ActionProps {

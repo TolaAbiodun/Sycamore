@@ -1,5 +1,5 @@
 import ChevronFoward from '@/components/Icons/app/chevron-foward';
-import { BLACK, GRAY_DARK, GRAY_MEDIUM, WHITE } from '@/styles/colors';
+import { BLACK, GRAY_DARK, WHITE } from '@/styles/colors';
 import {
   FONT_FAMILY_DMSANS_REGULAR,
   FONT_FAMILY_TOMATO_MEDIUM,
