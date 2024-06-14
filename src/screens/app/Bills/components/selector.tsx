@@ -4,9 +4,11 @@ import { scale } from 'react-native-size-matters';
 import {
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
+  FONT_SIZE_12,
   FONT_SIZE_14,
 } from '@/styles/fonts';
-import { GRAY_DARK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
+import { BLACK, GRAY_DARK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY, WHITE } from '@/styles/colors';
+import { Spacer } from '@/components';
 
 interface Props {
   iconPosition?: string;
@@ -19,6 +21,7 @@ interface Props {
   hasLargeText?: boolean;
   labelSecondary?: ReactNode;
   onPress: () => void;
+  subText?: string;
 }
 
 const CustomInputSelector = ({
@@ -30,6 +33,7 @@ const CustomInputSelector = ({
   labelSecondary,
   hasLargeText,
   onPress,
+  subText,
 }: Props) => {
   const [focused, setFocused] = React.useState(false);
 
@@ -57,7 +61,7 @@ const CustomInputSelector = ({
           // eslint-disable-next-line react-native/no-inline-styles
           {
             flexDirection: getFlexDirection(),
-            backgroundColor: '#f5f5f5',
+            backgroundColor: WHITE,
           },
         ]}
       >
@@ -71,6 +75,8 @@ const CustomInputSelector = ({
           <View style={{ marginTop: 5 }}>{icon && icon}</View>
         </TouchableOpacity>
       </View>
+      <Spacer height={5} />
+      <Text style={styles.sub}>{subText}</Text>
     </View>
   );
 };
@@ -82,7 +88,9 @@ const styles = StyleSheet.create({
     height: scale(50),
     borderRadius: scale(7),
     paddingHorizontal: scale(5),
-    backgroundColor: '#f5f5f5',
+    backgroundColor: WHITE,
+    borderWidth: 1,
+    borderColor: '#d6d6d6',
   },
 
   wrapperLarge: {
@@ -90,18 +98,19 @@ const styles = StyleSheet.create({
     borderRadius: scale(7),
     paddingHorizontal: scale(5),
     textAlignVertical: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: WHITE,
   },
 
   inputContainer: {
     width: '100%',
+    backgroundColor: WHITE,
   },
 
   inputLabel: {
     fontSize: FONT_SIZE_14,
     fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     color: SYC_BLACK,
-    paddingBottom: 10,
+    paddingBottom: 3,
   },
 
   textInput: {
@@ -110,16 +119,23 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
     width: '100%',
     padding: scale(5),
+    backgroundColor: WHITE,
   },
 
   val: {
     fontSize: FONT_SIZE_14,
-    fontFamily: FONT_FAMILY_DMSANS_REGULAR,
-    color: GRAY_DARK,
+    fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
+    color: BLACK,
+    marginLeft: 5,
   },
 
   labelCt: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  sub: {
+    fontFamily: FONT_FAMILY_DMSANS_REGULAR,
+    color: GRAY_DARK,
+    fontSize: FONT_SIZE_12,
   },
 });

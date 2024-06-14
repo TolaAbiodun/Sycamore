@@ -17,9 +17,9 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-import React, {ReactNode} from 'react';
-import {scale} from 'react-native-size-matters';
-import {FONT_FAMILY_DMSANS_MEDIUM, FONT_SIZE_14} from '@/styles/fonts';
+import React, { ReactNode } from 'react';
+import { scale } from 'react-native-size-matters';
+import { FONT_FAMILY_DMSANS_MEDIUM, FONT_SIZE_12, FONT_SIZE_14 } from '@/styles/fonts';
 
 type ButtonVariants = 'OUTLINED' | 'FILLED' | 'SUCCESS' | 'ERROR';
 
@@ -57,7 +57,7 @@ const Button: React.FC<ButtonProps> = ({
   const isSuccess = variant === 'SUCCESS';
   const isOutlined = variant === 'OUTLINED';
 
-  const fontSize = FONT_SIZE_14;
+  const fontSize = FONT_SIZE_12;
   //   const borderWidth = isOutlined ? 2 : Icon ? 0.4 : 0;
   const borderWidth = isOutlined ? 0 : 0;
   const borderColor = isOutlined ? GRAY_MEDIUM : SYC_PRIMARY;
@@ -101,7 +101,7 @@ const Button: React.FC<ButtonProps> = ({
     },
     pressed: {
       // borderBottomWidth: isOutlined ? 2 : 0,
-      transform: [{translateY: scale(3)}],
+      transform: [{ translateY: scale(3) }],
     },
     child: {
       fontFamily,
@@ -116,16 +116,15 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <Pressable
-      style={({pressed}) => [
+      style={({ pressed }) => [
         styles.container,
         pressed && !unclickable ? styles.pressed : null,
         buttonStyle,
       ]}
       disabled={disabled}
-      onPress={onPress}>
-      <View
-        onLayout={onLayout}
-        style={[styles.childContainer, childContainerStyles]}>
+      onPress={onPress}
+    >
+      <View onLayout={onLayout} style={[styles.childContainer, childContainerStyles]}>
         {iconPosition === 'right' ? (
           <>
             <Text style={[styles.child, style]}>{children}</Text>

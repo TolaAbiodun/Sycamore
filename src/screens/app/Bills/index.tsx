@@ -19,6 +19,8 @@ import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'reac
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import BillType from './components/menu';
 import CustomInputSelector from './components/selector';
+import EyeVisible from '@/components/Icons/app/eye-visible';
+import EyeCross from '@/components/Icons/app/eye-cross';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
 
@@ -103,13 +105,20 @@ const BillPaymentScreen = ({ navigation }: Props) => {
           />
           <CustomInputSelector
             label="Choose Plan"
-            labelSecondary={<Text style={styles.txtSec}>Balance: ****</Text>}
+            labelSecondary={
+              <Text style={styles.txtSec}>
+                Balance: **** <EyeCross />
+              </Text>
+            }
             icon={<CaretDown />}
             iconPosition="right"
             value="Select a plan"
             onPress={() => {}}
+            subText="Limit Per Transaction: ₦200,000"
           />
-          <Text style={styles.footer}>Limit Per Transaction: ₦200,000</Text>
+          <Spacer height={20} />
+
+          {/* <Text style={styles.footer}></Text> */}
           {/* Checkbox */}
           <BouncyCheckbox
             size={24}
@@ -128,7 +137,7 @@ const BillPaymentScreen = ({ navigation }: Props) => {
               setIsBeneficiaryChecked(isChecked);
             }}
           />
-          <Spacer height={15} />
+          <Spacer height={20} />
           {/* Beneficiary */}
           {isBeneficiaryChecked ? (
             <InputField
@@ -138,8 +147,8 @@ const BillPaymentScreen = ({ navigation }: Props) => {
               placeholder="Enter Name"
             />
           ) : null}
-          <Spacer height={10} />
-          <Button onPress={() => {}} variant="FILLED">
+          <Spacer height={50} />
+          <Button onPress={() => {}} variant="FILLED" buttonStyle={styles.btn}>
             Proceed to Pay Bill
           </Button>
         </Container>
@@ -157,7 +166,7 @@ const styles = StyleSheet.create({
   },
   hTxt: {
     fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
-    fontSize: FONT_SIZE_16,
+    fontSize: FONT_SIZE_12,
     paddingVertical: 10,
     color: BLACK,
   },
@@ -182,5 +191,10 @@ const styles = StyleSheet.create({
     color: BLACK,
     fontFamily: FONT_FAMILY_DMSANS_REGULAR,
     fontSize: FONT_SIZE_10,
+  },
+  btn: {
+    width: 160,
+    height: 55,
+    alignSelf: 'center',
   },
 });

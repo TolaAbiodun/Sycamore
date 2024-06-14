@@ -1,4 +1,4 @@
-import { ALERT, BLACK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY } from '@/styles/colors';
+import { ALERT, BLACK, GRAY_MEDIUM, SYC_BLACK, SYC_PRIMARY, WHITE } from '@/styles/colors';
 import {
   FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
@@ -51,6 +51,8 @@ const InputField = ({
   const getBorderWidth = () => {
     if (focused) {
       return scale(1);
+    } else {
+      return scale(1);
     }
   };
 
@@ -62,7 +64,7 @@ const InputField = ({
     if (focused) {
       return SYC_PRIMARY;
     } else {
-      return GRAY_MEDIUM;
+      return '#d6d6d6';
     }
   };
   return (
@@ -81,7 +83,7 @@ const InputField = ({
             borderColor: getBorderColor(),
             flexDirection: getFlexDirection(),
             borderWidth: getBorderWidth(),
-            backgroundColor: '#f5f5f5',
+            backgroundColor: WHITE,
           },
         ]}
       >
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     height: scale(50),
     borderRadius: scale(7),
     paddingHorizontal: scale(5),
-    backgroundColor: '#f5f5f5',
+    backgroundColor: WHITE,
   },
 
   wrapperLarge: {
@@ -122,19 +124,20 @@ const styles = StyleSheet.create({
     borderRadius: scale(7),
     paddingHorizontal: scale(5),
     textAlignVertical: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: WHITE,
   },
 
   inputContainer: {
-    paddingVertical: scale(5),
     width: '100%',
+    backgroundColor: WHITE,
+    // marginBottom: 8,
   },
 
   inputLabel: {
     fontSize: FONT_SIZE_14,
     fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     color: SYC_BLACK,
-    paddingBottom: 10,
+    paddingBottom: 3,
   },
 
   textInput: {
@@ -144,6 +147,7 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: scale(5),
     color: BLACK,
+    backgroundColor: WHITE,
   },
 
   error: {
@@ -154,5 +158,6 @@ const styles = StyleSheet.create({
   labelCt: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: WHITE,
   },
 });

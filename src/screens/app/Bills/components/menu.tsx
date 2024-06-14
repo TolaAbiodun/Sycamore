@@ -23,6 +23,7 @@ const BillType = ({ icon, title, bgColor, bdColor, isActive, onPress }: BillProp
         {
           backgroundColor: isActive ? bgColor : WHITE,
           borderColor: bdColor,
+          opacity: isActive ? 1 : 0.6,
         },
       ]}
     >

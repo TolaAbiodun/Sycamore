@@ -39,7 +39,7 @@ const GoBack = ({
         <SvgBackButton />
       </TouchableOpacity>
       <Text style={[styles.headertext, { color: colors.text }]}>{title}</Text>
-      <View style={{ flex: 0.1 }} />
+      <View style={{ flex: 0.8 }} />
     </View>
   );
 };
