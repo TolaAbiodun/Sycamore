@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 80 : 70,
     gap: 10,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },

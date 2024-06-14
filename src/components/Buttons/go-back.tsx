@@ -3,6 +3,7 @@ import SvgBackButton from '../Icons/app/goback';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import {
+  FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_TOMATO_MEDIUM,
   FONT_SIZE_16,
   FONT_SIZE_18,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   headertext: {
-    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
+    fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     fontSize: FONT_SIZE_18,
     color: BLACK,
   },

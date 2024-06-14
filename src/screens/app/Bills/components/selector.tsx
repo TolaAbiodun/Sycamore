@@ -86,8 +86,8 @@ export default CustomInputSelector;
 const styles = StyleSheet.create({
   wrapper: {
     height: scale(50),
-    borderRadius: scale(7),
-    paddingHorizontal: scale(5),
+    borderRadius: 12,
+    paddingHorizontal: 5,
     backgroundColor: WHITE,
     borderWidth: 1,
     borderColor: '#d6d6d6',
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
 
   wrapperLarge: {
     height: scale(100),
-    borderRadius: scale(7),
-    paddingHorizontal: scale(5),
+    borderRadius: 12,
+    paddingHorizontal: 5,
     textAlignVertical: 'center',
     backgroundColor: WHITE,
   },

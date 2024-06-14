@@ -85,7 +85,7 @@ const Button: React.FC<ButtonProps> = ({
   const styles = StyleSheet.create({
     container: {
       width: '100%',
-      borderRadius: scale(7),
+      borderRadius: 12,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: disabled ? disabledBackgroundColor : backgroundColor,

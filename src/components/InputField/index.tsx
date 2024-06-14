@@ -114,15 +114,15 @@ export default InputField;
 const styles = StyleSheet.create({
   wrapper: {
     height: scale(50),
-    borderRadius: scale(7),
-    paddingHorizontal: scale(5),
+    borderRadius: 12,
+    paddingHorizontal: 5,
     backgroundColor: WHITE,
   },
 
   wrapperLarge: {
     height: scale(100),
-    borderRadius: scale(7),
-    paddingHorizontal: scale(5),
+    borderRadius: 12,
+    paddingHorizontal: 5,
     textAlignVertical: 'center',
     backgroundColor: WHITE,
   },
@@ -130,6 +130,8 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: '100%',
     backgroundColor: WHITE,
+    borderRadius: 12,
+
     // marginBottom: 8,
   },
 
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
     padding: scale(5),
     color: BLACK,
     backgroundColor: WHITE,
+    borderRadius: 12,
   },
 
   error: {
