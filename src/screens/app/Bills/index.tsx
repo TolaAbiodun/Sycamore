@@ -4,13 +4,12 @@ import CaretDown from '@/components/Icons/app/caret-down';
 import { AppStackList } from '@/navigation/app-navigator';
 import { BLACK, GRAY_DARK, SYC_GREEN, WHITE } from '@/styles/colors';
 import {
+  FONT_FAMILY_DMSANS_MEDIUM,
   FONT_FAMILY_DMSANS_REGULAR,
-  FONT_FAMILY_TOMATO_MEDIUM,
   FONT_FAMILY_TOMATO_REGULAR,
   FONT_SIZE_10,
   FONT_SIZE_12,
   FONT_SIZE_14,
-  FONT_SIZE_16,
 } from '@/styles/fonts';
 import { billTypes } from '@/utils/data';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -19,7 +18,6 @@ import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'reac
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import BillType from './components/menu';
 import CustomInputSelector from './components/selector';
-import EyeVisible from '@/components/Icons/app/eye-visible';
 import EyeCross from '@/components/Icons/app/eye-cross';
 
 type NavigatorProps = StackNavigationProp<AppStackList, 'TabNav'>;
@@ -165,7 +163,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#d6d6d6',
   },
   hTxt: {
-    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
+    fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     fontSize: FONT_SIZE_12,
     paddingVertical: 10,
     color: BLACK,
@@ -182,7 +180,7 @@ const styles = StyleSheet.create({
   chkBox: {
     fontWeight: '600',
     fontSize: FONT_SIZE_14,
-    fontFamily: FONT_FAMILY_TOMATO_MEDIUM,
+    fontFamily: FONT_FAMILY_DMSANS_MEDIUM,
     marginLeft: -10,
     textDecorationLine: 'none',
     color: BLACK,
